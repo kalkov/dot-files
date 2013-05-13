@@ -1,0 +1,22 @@
+# ~/.tmuxinator/gaku.yml
+# you can make as many tabs as you wish...
+
+project_name: gaku
+project_root: /hdd/work/ruby
+socket_name: foo # Not needed.  Remove to use default socket
+#rvm: 1.9.3@gaku
+#pre: sudo /etc/rc.d/mysqld start
+tabs:
+  - gaku_base:
+      layout: main-vertical
+      panes:
+        - cd gaku_base_app && rvm use 1.9.3@gaku && rails s
+        - cd gaku_base_app && rails c
+        
+  - GAKU:
+      layout: main-vertical
+      panes: 
+        - cd GAKUEngine/core 
+        - cd GAKUEngine/admissions
+        - cd GAKUEngine && git st 
+
