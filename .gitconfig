@@ -44,3 +44,10 @@
 
     # Show files ignored by git:
     ign = ls-files -o -i --exclude-standard
+	today = log --since=midnight --author='Vassil Kalkov' --oneline
+	sm = story-merge
+	spr = story-pull-request
+[push]
+	default = matching
+[rerere]
+	enabled = true
