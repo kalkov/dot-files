@@ -15,7 +15,7 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/ga
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 #nvm
-#source $HOME/.nvm/nvm.sh
+source $HOME/.nvm/nvm.sh
 
 compctl -g '~/.teamocil/*(:t:r)' teamocil
 
