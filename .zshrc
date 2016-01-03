@@ -2,7 +2,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="sunrise"
 CASE_SENSITIVE="true"
 
-plugins=(autoenv colored-man colorize command-not-found cp history bundler rvm rails ruby git)
+plugins=(colored-man colorize command-not-found cp history bundler rvm rails ruby git)
 
 source $ZSH/oh-my-zsh.sh
 
