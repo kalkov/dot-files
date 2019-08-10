@@ -1,6 +1,6 @@
 [user]
   name = Vassil Kalkov
-  email = vassilkalkov@gmail.com
+  email = 103871+kalkov@users.noreply.github.com
 
 [core]
   editor=vim
@@ -16,10 +16,6 @@
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f
   required = true
-
-[pager]
-  diff = diff-so-fancy | less --tabs=4 -RFX
-  show = diff-so-fancy | less --tabs=4 -RFX
 
 [apply]
   whitespace = nowarn
@@ -56,15 +52,14 @@
   br = branch
   co = checkout
   df = diff
-  dc = diff --cached
+  dfc = diff --cached
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
   ls = ls-files
 
-  # Show files ignored by git:
-  ign = ls-files -o -i --exclude-standard
-	today = log --since=midnight --author='Vassil Kalkov' --oneline
-	sm = story-merge
-	spr = story-pull-request
+[help]
+  autocorrect = 1
 
+[web]
+  browser = chrome
