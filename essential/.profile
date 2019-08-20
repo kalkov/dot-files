@@ -26,3 +26,7 @@ fi
 if [ -f ~/.paths ]; then
   . ~/.paths
 fi
+
+if [ -f ~/.santiment ]; then
+  . ~/.santiment
+fi

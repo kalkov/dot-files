@@ -1,0 +1,10 @@
+alias kgps='kubectl get pods | rg sanbase'
+
+remote_console(){
+  kubectl exec -it $1 /app/bin/sanbase remote_console
+}
+
+remote_server(){
+  kubectl exec -it $1 sh
+}
+
