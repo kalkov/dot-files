@@ -15,18 +15,7 @@ if [ -n "$BASH_VERSION" ]; then
   fi
 fi
 
-if [ -f ~/.functions ]; then
-  . ~/.functions
-fi
-
-if [ -f ~/.aliases ]; then
-  . ~/.aliases
-fi
-
-if [ -f ~/.paths ]; then
-  . ~/.paths
-fi
-
-if [ -f ~/.santiment ]; then
-  . ~/.santiment
-fi
+[ -f ~/.functions ] && source ~/.functions
+[ -f ~/.aliases ] && source ~/.aliases
+[ -f ~/.paths ] && source ~/.paths
+[ -f ~/.santiment ] && source ~/.santiment
