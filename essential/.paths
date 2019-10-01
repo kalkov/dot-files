@@ -1,0 +1,19 @@
+if [ -d "$HOME/bin" ] ; then
+  PATH="$HOME/bin:$PATH"
+fi
+
+PATH=$PATH:/usr/local/sbin
+
+#rvm
+RVM_DIR="$HOME/.rvm"
+if [ -d "$RVM_DIR" ] ; then
+  PATH=$PATH:$RVM_DIR/bin
+fi
+
+#nvm
+NVM_DIR="$HOME/.nvm"
+if [ -d "$NVM_DIR" ] ; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
