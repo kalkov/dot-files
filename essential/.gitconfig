@@ -21,7 +21,7 @@
   whitespace = nowarn
 
 [color]
-  ui = true
+  ui = auto
 
 [color "branch"]
   current = yellow reverse
@@ -48,18 +48,25 @@
 
 [alias]
   st = status -sb
-  ci = commit
   br = branch
+  ci = commit
   co = checkout
   df = diff
   dfc = diff --cached
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
-  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
   ls = ls-files
+  today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
+  undo = reset --soft HEAD^
+  amend = commit --amend
+  unstage = reset HEAD
+  commits-per-user = shortlog -s -n
 
 [help]
   autocorrect = 1
 
 [web]
   browser = chrome
+
+[github]
+  user = kalkov

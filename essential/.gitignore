@@ -1,0 +1,13 @@
+*~
+.DS_Store
+.bundle
+.dump.rdb
+.log
+.projections.json
+.vimrc.local
+custom_plan.rb
+dump.rdb
+tags
+tmp
+yarn-error.log
+.vs_code
