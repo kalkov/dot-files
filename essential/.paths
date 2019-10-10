@@ -3,6 +3,7 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 PATH=$PATH:/usr/local/sbin
+PATH=$PATH:"$HOME/.local/bin"
 
 #rvm
 RVM_DIR="$HOME/.rvm"
