@@ -27,3 +27,4 @@ antigen theme robbyrussell
 antigen apply
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
