@@ -20,6 +20,9 @@ fi
 [ -f ~/.paths ] && source ~/.paths
 [ -f ~/.santiment ] && source ~/.santiment
 
+# swap caps lock with escape
+setxkbmap -option caps:swapescape
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
