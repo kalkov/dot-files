@@ -1,10 +1,28 @@
-alias kgps='kubectl get pods | rg sanbase'
+alias ku='kubectl'
 
-remote_console(){
-  kubectl exec -it $1 /app/bin/sanbase remote_console
+kupods() {
+  kubectl get pods | grep $1
 }
 
-remote_server(){
+remote_server() {
   kubectl exec -it $1 sh
+}
+
+kustage() {
+    unset KUBECONFIG
+    unset KUBE_CONFIG
+    export KUBECONFIG=$KUBECONFIG:/home/merops/.kube/stage-config
+    export KUBE_CONFIG=/home/merops/.kube/stage-config
+}
+
+kuprod() {
+    unset KUBECONFIG
+    unset KUBE_CONFIG
+    export KUBECONFIG=$KUBECONFIG:/home/merops/.kube/prod-config
+    export KUBE_CONFIG=/home/merops/.kube/prod-config
+}
+
+kuconfig() {
+  echo $KUBE_CONFIG
 }
 
