@@ -8,21 +8,37 @@ remote_server() {
   kubectl exec -it $1 sh
 }
 
-kustage() {
+san-ku-stage() {
     unset KUBECONFIG
     unset KUBE_CONFIG
     export KUBECONFIG=$KUBECONFIG:/home/merops/.kube/stage-config
     export KUBE_CONFIG=/home/merops/.kube/stage-config
 }
 
-kuprod() {
+san-ku-prod() {
     unset KUBECONFIG
     unset KUBE_CONFIG
     export KUBECONFIG=$KUBECONFIG:/home/merops/.kube/prod-config
     export KUBE_CONFIG=/home/merops/.kube/prod-config
 }
 
-kuconfig() {
+san-ku-config() {
   echo $KUBE_CONFIG
 }
 
+
+san-wg-stage-up() {
+  sudo wg-quick up wg-client-stage
+}
+
+san-wg-stage-down(){
+  sudo wg-quick down wg-client-stage
+}
+
+san-wg-prod-up() {
+  sudo wg-quick up wg-client-prod
+}
+
+san-wg-prod-down() {
+  sudo wg-quick down wg-client-prod
+}
