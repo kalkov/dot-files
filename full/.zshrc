@@ -28,3 +28,9 @@ antigen apply
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
+
+#pyenv
+export PATH="/home/merops/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
