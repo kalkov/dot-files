@@ -22,6 +22,13 @@ san-ku-prod() {
     export KUBE_CONFIG=/home/merops/.kube/prod-config
 }
 
+san-ku-minukube() {
+    unset KUBECONFIG
+    unset KUBE_CONFIG
+    export KUBECONFIG=$KUBECONFIG:/home/merops/.kube/minikube-config
+    export KUBE_CONFIG=/home/merops/.kube/minikube-config
+}
+
 san-ku-config() {
   echo $KUBE_CONFIG
 }
