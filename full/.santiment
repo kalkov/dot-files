@@ -8,25 +8,39 @@ remote_server() {
   kubectl exec -it $1 sh
 }
 
-san-ku-stage() {
+san-ku-aws-stage() {
     unset KUBECONFIG
     unset KUBE_CONFIG
-    export KUBECONFIG=$KUBECONFIG:/home/merops/.kube/stage-config
-    export KUBE_CONFIG=/home/merops/.kube/stage-config
+    export KUBECONFIG=$KUBECONFIG:/home/merops/.kube/aws-stage
+    export KUBE_CONFIG=/home/merops/.kube/aws-stage
 }
 
-san-ku-prod() {
+san-ku-hetzner-stage() {
     unset KUBECONFIG
     unset KUBE_CONFIG
-    export KUBECONFIG=$KUBECONFIG:/home/merops/.kube/prod-config
-    export KUBE_CONFIG=/home/merops/.kube/prod-config
+    export KUBECONFIG=$KUBECONFIG:/home/merops/.kube/hetzner-stage
+    export KUBE_CONFIG=/home/merops/.kube/hetzner-stage
 }
 
-san-ku-minukube() {
+san-ku-aws-prod() {
     unset KUBECONFIG
     unset KUBE_CONFIG
-    export KUBECONFIG=$KUBECONFIG:/home/merops/.kube/minikube-config
-    export KUBE_CONFIG=/home/merops/.kube/minikube-config
+    export KUBECONFIG=$KUBECONFIG:/home/merops/.kube/aws-prod
+    export KUBE_CONFIG=/home/merops/.kube/aws-prod
+}
+
+san-ku-hetzner-prod() {
+    unset KUBECONFIG
+    unset KUBE_CONFIG
+    export KUBECONFIG=$KUBECONFIG:/home/merops/.kube/hetzner-prod
+    export KUBE_CONFIG=/home/merops/.kube/hetzner-prod
+}
+
+san-ku-minikube() {
+    unset KUBECONFIG
+    unset KUBE_CONFIG
+    export KUBECONFIG=$KUBECONFIG:/home/merops/.kube/minikube
+    export KUBE_CONFIG=/home/merops/.kube/minikube
 }
 
 san-ku-config() {
@@ -49,3 +63,9 @@ san-wg-prod-up() {
 san-wg-prod-down() {
   sudo wg-quick down wg-client-prod
 }
+
+san-wg-down() {
+  sudo wg-quick down wg-client-stage
+  sudo wg-quick down wg-client-prod
+}
+
