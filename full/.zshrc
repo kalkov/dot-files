@@ -31,3 +31,5 @@ antigen apply
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+
+[[ /usr/local/bin/kubectl ]] && source <(ku completion zsh)
