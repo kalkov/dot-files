@@ -21,7 +21,7 @@ antigen bundle tmux
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Load the theme.
-antigen theme robbyrussell
+antigen theme fino
 
 # Tell Antigen that you're done.
 antigen apply
