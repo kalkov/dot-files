@@ -16,6 +16,7 @@ antigen bundle dirhistory
 antigen bundle ruby
 antigen bundle history
 antigen bundle tmux
+antigen bundle kubectl
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
