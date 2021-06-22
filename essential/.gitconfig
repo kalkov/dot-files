@@ -61,6 +61,7 @@
   amend = commit --amend
   unstage = reset HEAD
   commits-per-user = shortlog -s -n
+  pushf = push --force-with-lease
 
 [help]
   autocorrect = 1
