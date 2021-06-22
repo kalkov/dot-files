@@ -62,6 +62,10 @@
   unstage = reset HEAD
   commits-per-user = shortlog -s -n
   pushf = push --force-with-lease
+  rc = rebase --continue
+  ra = rebase --abort
+  rs = rebase --skip
+  ri = rebase --interactive
 
 [help]
   autocorrect = 1
