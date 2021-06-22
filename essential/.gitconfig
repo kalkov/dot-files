@@ -53,7 +53,7 @@
   co = checkout
   df = diff
   dfc = diff --cached
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s  %Cblue%as%Creset %Cblue(%cr)  %C(bold green)<%an>%Creset' --abbrev-commit
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   ls = ls-files
   today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
