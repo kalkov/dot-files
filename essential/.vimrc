@@ -1,3 +1,15 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'preservim/nerdtree'
+Plugin 'vim-airline/vim-airline'
+call vundle#end()
+filetype plugin indent on
+
 syntax on                   " enable syntax highlighting
 set cursorline              " highlight the current line
 set background=dark         " darker color scheme
