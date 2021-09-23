@@ -42,3 +42,4 @@ eval "$(pyenv virtualenv-init -)"
 
 complete -F __start_kubectl ku
 
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
