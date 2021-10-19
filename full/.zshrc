@@ -31,6 +31,7 @@ antigen apply
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
 
@@ -38,7 +39,5 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-#autoload -U +X compinit && compinit
-#autoload -U +X bashcompinit && bashcompinit
-
 complete -F __start_kubectl ku
+
