@@ -32,8 +32,13 @@ antigen apply
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
-[[ /usr/local/bin/kubectl ]] && source <(ku completion zsh)
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
 
 # load pyenv
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+#autoload -U +X compinit && compinit
+#autoload -U +X bashcompinit && bashcompinit
+
+complete -F __start_kubectl ku
