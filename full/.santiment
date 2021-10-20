@@ -1,10 +1,14 @@
 alias ku='kubectl'
 
-kupods() {
-  kubectl get pods | grep $1
+kup() {
+  kubectl get pods
 }
 
-remote_server() {
+kul() {
+  kubectl logs -f $1
+}
+
+kue() {
   kubectl exec -it $1 sh
 }
 
