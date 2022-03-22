@@ -66,6 +66,7 @@
   ra = rebase --abort
   rs = rebase --skip
   ri = rebase --interactive
+  rom = rebase origin/master 
 
 [help]
   autocorrect = 1
