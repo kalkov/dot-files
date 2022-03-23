@@ -10,7 +10,7 @@ antigen bundle docker
 antigen bundle docker-compose
 antigen bundle bundler
 antigen bundle common-aliases
-antigen bundle copydir
+antigen bundle copypath
 antigen bundle copyfile
 antigen bundle dirhistory
 antigen bundle ruby
