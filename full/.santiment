@@ -40,6 +40,13 @@ san-ku-hetzner-prod() {
     export KUBE_CONFIG=/home/merops/.kube/hetzner-prod
 }
 
+san-ku-blockchain() {
+    unset KUBECONFIG
+    unset KUBE_CONFIG
+    export KUBECONFIG=$KUBECONFIG:/home/merops/.kube/blockchain
+    export KUBE_CONFIG=/home/merops/.kube/blockchain
+}
+
 san-ku-minikube() {
     unset KUBECONFIG
     unset KUBE_CONFIG
