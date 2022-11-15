@@ -17,12 +17,14 @@ antigen bundle ruby
 antigen bundle history
 antigen bundle tmux
 antigen bundle kubectl
+antigen bundle kube-ps1
+antigen bundle spaceship-prompt/spaceship-vi-mode@main
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Load the theme.
-antigen theme fino
+antigen theme spaceship-prompt/spaceship-prompt
 
 # Tell Antigen that you're done.
 antigen apply
@@ -30,16 +32,19 @@ antigen apply
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+# load krew for k8s
+path+=("${KREW_ROOT:-$HOME/.krew}/bin")
 
+# kubectl
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
-
-# load pyenv
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
 complete -F __start_kubectl ku
 
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+#load kubectl config
+source ~/.kube/load-kube-configs.sh
+
+export PATH
