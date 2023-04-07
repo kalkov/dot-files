@@ -16,6 +16,7 @@ Used for slower machines like RaspberryPI or small cloud instances.
 * [fzf](https://github.com/junegunn/fzf)
 * [tmux](https://github.com/tmux/tmux/wiki)
 * [tpm](https://github.com/tmux-plugins/tpm)
+* [Vundle](https://github.com/VundleVim/Vundle.vim)
 
 ### Install
 Symlink dot files from `~/dot-files/essential` to `~/`:
@@ -33,6 +34,7 @@ Used for desktop, laptop or powerful cloud instances. Includes the essential pac
 * [fzf](https://github.com/junegunn/fzf)
 * [tmux](https://github.com/tmux/tmux/wiki)
 * [tpm](https://github.com/tmux-plugins/tpm)
+* [Vundle](https://github.com/VundleVim/Vundle.vim)
 
 ### Install
 Symlink dot files from `~/dot-files/essential` & `~/dot-files/full` to `~/`:
