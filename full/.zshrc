@@ -48,3 +48,10 @@ export NVM_DIR="$HOME/.nvm"
 source ~/.kube/load-kube-configs.sh
 
 export PATH
+source "/etc/profile.d/rvm.sh"
+
+export AWS_PROFILE=default
+export AWS_DEFAULT_REGION=eu-central-1
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
