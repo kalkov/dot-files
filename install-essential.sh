@@ -16,6 +16,9 @@ echo "Installing Vundle"
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
+echo "Installing batcat"
+sudo apt install bat
+
 dotfiles_dir=~/dot-files/essential
 
 echo "Creating assential symlinks..."
