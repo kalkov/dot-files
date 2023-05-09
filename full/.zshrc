@@ -43,15 +43,21 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# golang
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
 
-#load kubectl config
+# load kubectl config
 source ~/.kube/load-kube-configs.sh
 
-export PATH
+# rvm
 source "/etc/profile.d/rvm.sh"
 
+# aws
 export AWS_PROFILE=default
 export AWS_DEFAULT_REGION=eu-central-1
 
 autoload -U +X bashcompinit && bashcompinit
+
+# terraform
 complete -o nospace -C /usr/bin/terraform terraform
