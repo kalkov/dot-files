@@ -69,6 +69,7 @@
   rs = rebase --skip
   ri = rebase --interactive
   rom = rebase origin/master 
+  roma = rebase origin/main
 
 [help]
   autocorrect = 1
