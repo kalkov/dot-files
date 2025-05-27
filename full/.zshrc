@@ -61,3 +61,6 @@ autoload -U +X bashcompinit && bashcompinit
 
 # terraform
 complete -o nospace -C /usr/bin/terraform terraform
+
+# make sure hyphens stay inside words
+export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
