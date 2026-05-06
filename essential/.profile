@@ -19,6 +19,7 @@ fi
 [ -f ~/.aliases ] && source ~/.aliases
 [ -f ~/.paths ] && source ~/.paths
 [ -f ~/.santiment ] && source ~/.santiment
+[ -f ~/.secrets ] && source ~/.secrets
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
