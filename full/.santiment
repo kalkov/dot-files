@@ -80,6 +80,22 @@ san-wg-down() {
   sudo wg-quick down wg-client-prod
 }
 
+san-aws-prod() {
+  export AWS_PROFILE=santiment
+}
+
+san-aws-personal() {
+  export AWS_PROFILE=personal
+}
+
+san-ku-terrarino() {
+  unset KUBECONFIG
+  unset KUBE_CONFIG
+  export KUBECONFIG=$KUBECONFIG:/home/merops/.kube/terrarino
+  export KUBE_CONFIG=/home/merops/.kube/terrarino
+  export AWS_PROFILE=personal
+}
+
 san-vault-setup() {
   local vault_dir="$HOME/.config/vault"
   mkdir -p "$vault_dir"
