@@ -60,7 +60,7 @@ export AWS_DEFAULT_REGION=eu-central-1
 autoload -U +X bashcompinit && bashcompinit
 
 # terraform
-complete -o nospace -C /usr/bin/terraform terraform
+[[ -x "$(which terraform 2>/dev/null)" ]] && complete -o nospace -C "$(which terraform)" terraform
 
 # make sure hyphens stay inside words
 export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
