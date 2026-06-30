@@ -88,7 +88,7 @@ san-aws-personal() {
   export AWS_PROFILE=personal
 }
 
-san-ku-terrarino() {
+ku-terrarino() {
   unset KUBECONFIG
   unset KUBE_CONFIG
   export KUBECONFIG=$KUBECONFIG:/home/merops/.kube/terrarino
