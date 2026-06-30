@@ -64,3 +64,16 @@ complete -o nospace -C /usr/bin/terraform terraform
 
 # make sure hyphens stay inside words
 export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Vault: switch between per-cluster env files in ~/.config/vault/<cluster>.env
+vault-use() {
+  local cluster="${1:?usage: vault-use <cluster>}"
+  local f="$HOME/.config/vault/$cluster.env"
+  [[ -f "$f" ]] || { echo "missing $f" >&2; return 1; }
+  source "$f"
+  echo "→ vault: $VAULT_ADDR ($cluster)"
+}
+_vault-use() { _files -W "$HOME/.config/vault" -g '*.env(:r)' }
+compdef _vault-use vault-use
