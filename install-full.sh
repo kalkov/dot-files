@@ -56,4 +56,10 @@ for source in $dotfiles_dir/bin/*; do
     chmod +x $source
 done
 
+echo "Installing AWS config..."
+mkdir -p ~/.aws
+chmod 700 ~/.aws
+ln -sf $dotfiles_dir/.aws/config ~/.aws/config
+echo "Symlinked: $dotfiles_dir/.aws/config to: ~/.aws/config"
+
 echo "Done"
