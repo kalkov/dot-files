@@ -69,6 +69,11 @@ mkdir -p ~/.config/gh
 ln -sf $dotfiles_dir/.config/gh/config.yml ~/.config/gh/config.yml
 echo "Symlinked: $dotfiles_dir/.config/gh/config.yml to: ~/.config/gh/config.yml"
 
+echo "Installing ghostty config..."
+mkdir -p ~/.config/ghostty
+ln -sf $dotfiles_dir/.config/ghostty/config ~/.config/ghostty/config
+echo "Symlinked: $dotfiles_dir/.config/ghostty/config to: ~/.config/ghostty/config"
+
 echo "Installing k9s config..."
 mkdir -p ~/.config/k9s
 ln -sf $dotfiles_dir/.config/k9s/config.yaml ~/.config/k9s/config.yaml
