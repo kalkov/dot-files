@@ -80,3 +80,21 @@ san-wg-down() {
   sudo wg-quick down wg-client-prod
 }
 
+san-vault-setup() {
+  local vault_dir="$HOME/.config/vault"
+  mkdir -p "$vault_dir"
+  chmod 700 "$vault_dir"
+  for cluster in system aws-prod aws-stage hetzner-stage hetzner-prod; do
+    local env_file="$vault_dir/${cluster}.env"
+    if [[ ! -f "$env_file" ]]; then
+      printf 'export VAULT_USER=FILL_IN\nexport VAULT_PASS=FILL_IN\n' > "$env_file"
+      chmod 600 "$env_file"
+      echo "Created: $env_file"
+    else
+      echo "Exists:  $env_file"
+    fi
+  done
+  echo ""
+  echo "Fill in credentials, then test with: vault-ctx <cluster> status"
+}
+

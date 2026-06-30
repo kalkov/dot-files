@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+# vault-ctx <cluster> <vault args...>
+# Access a cluster's Vault via userpass auth. Handles port-forward for 'system'.
+set -euo pipefail
+
+CLUSTER="${1:?Usage: vault-ctx <cluster> <vault args...>}"
+shift
+
+declare -A KUBE_CTX=(
+  [system]="system"
+  [aws-prod]="aws-prod"
+  [aws-stage]="k8s-stage.internal.santiment.net"
+  [hetzner-stage]="hetzner-stage-v2"
+  [hetzner-prod]="hetzner-prod-v2"
+)
+
+declare -A VAULT_URL=(
+  [aws-prod]="http://vault.production.san:31080"
+  [aws-stage]="http://vault.stage.san:31080"
+  [hetzner-stage]="http://vault-hz.stage.san:32080"
+  [hetzner-prod]="http://vault-hz.production.san:32080"
+)
+
+[[ -v KUBE_CTX[$CLUSTER] ]] || {
+  echo "Unknown cluster: $CLUSTER" >&2
+  echo "Valid clusters: ${!KUBE_CTX[*]}" >&2
+  exit 1
+}
+
+ENV_FILE="$HOME/.config/vault/${CLUSTER}.env"
+[[ -f "$ENV_FILE" ]] || { echo "Missing env file: $ENV_FILE" >&2; echo "Run: san-vault-setup" >&2; exit 1; }
+# shellcheck source=/dev/null
+source "$ENV_FILE"
+
+PF_PID=""
+cleanup() { [[ -n "$PF_PID" ]] && kill "$PF_PID" 2>/dev/null && wait "$PF_PID" 2>/dev/null; }
+trap cleanup EXIT
+
+if [[ "$CLUSTER" == "system" ]]; then
+  kubectl --context system port-forward -n vault vault-0 18200:8200 &>/dev/null &
+  PF_PID=$!
+  export VAULT_ADDR="http://localhost:18200"
+  for i in $(seq 1 20); do
+    curl -sf "${VAULT_ADDR}/v1/sys/health" &>/dev/null && break
+    sleep 0.3
+  done
+else
+  export VAULT_ADDR="${VAULT_URL[$CLUSTER]}"
+fi
+
+export VAULT_TOKEN
+if [[ "${VAULT_PASS:-}" == hvs.* ]]; then
+  VAULT_TOKEN="$VAULT_PASS"
+else
+  VAULT_TOKEN=$(vault login \
+    -method=userpass \
+    -format=json \
+    username="$VAULT_USER" \
+    password="$VAULT_PASS" 2>/dev/null | jq -r '.auth.client_token')
+fi
+
+vault "$@"

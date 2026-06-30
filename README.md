@@ -40,3 +40,28 @@ Used for desktop, laptop or powerful cloud instances. Includes the essential pac
 Symlink dot files from `~/dot-files/essential` & `~/dot-files/full` to `~/`:
 
     ./install-full.sh
+
+## Vault access
+
+The `full` package includes `vault-ctx`, a wrapper for accessing Vault across Santiment clusters.
+
+### Usage
+
+    vault-ctx <cluster> <vault args...>
+
+    vault-ctx aws-prod kv get secret/foo
+    vault-ctx system status
+
+Available clusters: `system`, `aws-prod`, `aws-stage`, `hetzner-stage`, `hetzner-prod`.
+
+### Setup on a new machine
+
+After running `install-full.sh`, create the credential files:
+
+    san-vault-setup
+
+This creates `~/.config/vault/<cluster>.env` templates. Fill in `VAULT_USER` and `VAULT_PASS` for each cluster, then verify:
+
+    vault-ctx <cluster> status
+
+Credentials are machine-local and not stored in this repo.

@@ -41,9 +41,19 @@ echo "Creating full symlinks..."
 
 shopt -s dotglob
 for source in $dotfiles_dir/*; do
+    [[ "$(basename $source)" == "bin" ]] && continue
     dest=~/${source##*/}
     echo "Symlinking: $source to: $dest"
     ln -sf $source $dest
+done
+
+echo "Installing bin scripts to ~/.local/bin..."
+mkdir -p ~/.local/bin
+for source in $dotfiles_dir/bin/*; do
+    dest=~/.local/bin/$(basename $source)
+    echo "Symlinking: $source to: $dest"
+    ln -sf $source $dest
+    chmod +x $source
 done
 
 echo "Done"
