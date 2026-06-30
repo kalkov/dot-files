@@ -42,6 +42,7 @@ echo "Creating full symlinks..."
 shopt -s dotglob
 for source in $dotfiles_dir/*; do
     [[ "$(basename $source)" == "bin" ]] && continue
+    [[ "$(basename $source)" == ".kube" ]] && continue
     dest=~/${source##*/}
     echo "Symlinking: $source to: $dest"
     ln -sf $source $dest
@@ -55,6 +56,12 @@ for source in $dotfiles_dir/bin/*; do
     ln -sf $source $dest
     chmod +x $source
 done
+
+echo "Installing kube load script..."
+mkdir -p ~/.kube/config-files
+ln -sf $dotfiles_dir/.kube/load-kube-configs.sh ~/.kube/load-kube-configs.sh
+chmod +x $dotfiles_dir/.kube/load-kube-configs.sh
+echo "Symlinked: $dotfiles_dir/.kube/load-kube-configs.sh to: ~/.kube/load-kube-configs.sh"
 
 echo "Installing AWS config..."
 mkdir -p ~/.aws
