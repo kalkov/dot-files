@@ -69,6 +69,11 @@ mkdir -p ~/.config/gh
 ln -sf $dotfiles_dir/.config/gh/config.yml ~/.config/gh/config.yml
 echo "Symlinked: $dotfiles_dir/.config/gh/config.yml to: ~/.config/gh/config.yml"
 
+echo "Installing k9s config..."
+mkdir -p ~/.config/k9s
+ln -sf $dotfiles_dir/.config/k9s/config.yaml ~/.config/k9s/config.yaml
+echo "Symlinked: $dotfiles_dir/.config/k9s/config.yaml to: ~/.config/k9s/config.yaml"
+
 echo "Installing AWS config..."
 mkdir -p ~/.aws
 chmod 700 ~/.aws
