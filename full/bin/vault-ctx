@@ -8,6 +8,7 @@ shift
 
 declare -A KUBE_CTX=(
   [system]="system"
+  [blockchain]="blockchain-v2"
   [aws-prod]="aws-prod"
   [aws-stage]="k8s-stage.internal.santiment.net"
   [hetzner-stage]="hetzner-stage-v2"
@@ -36,10 +37,15 @@ PF_PID=""
 cleanup() { [[ -n "$PF_PID" ]] && kill "$PF_PID" 2>/dev/null && wait "$PF_PID" 2>/dev/null; }
 trap cleanup EXIT
 
-if [[ "$CLUSTER" == "system" ]]; then
-  kubectl --context system port-forward -n vault vault-0 18200:8200 &>/dev/null &
+if [[ "$CLUSTER" == "system" || "$CLUSTER" == "blockchain" ]]; then
+  if [[ "$CLUSTER" == "system" ]]; then
+    PF_TARGET="pod/vault-0"; PF_PORT=18200
+  else
+    PF_TARGET="svc/vault-active"; PF_PORT=18201
+  fi
+  kubectl --context "${KUBE_CTX[$CLUSTER]}" port-forward -n vault "$PF_TARGET" "${PF_PORT}:8200" &>/dev/null &
   PF_PID=$!
-  export VAULT_ADDR="http://localhost:18200"
+  export VAULT_ADDR="http://localhost:${PF_PORT}"
   for i in $(seq 1 20); do
     curl -sf "${VAULT_ADDR}/v1/sys/health" &>/dev/null && break
     sleep 0.3
