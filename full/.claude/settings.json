@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "k8s-admin": {
+      "type": "sse",
+      "url": "http://localhost:8080/sse"
+    },
+    "logs": {
+      "type": "sse",
+      "url": "http://localhost:8081/sse"
+    }
+  },
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
+  }
+}

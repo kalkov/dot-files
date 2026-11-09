@@ -44,6 +44,7 @@ for source in $dotfiles_dir/*; do
     [[ "$(basename $source)" == "bin" ]] && continue
     [[ "$(basename $source)" == ".kube" ]] && continue
     [[ "$(basename $source)" == ".config" ]] && continue
+    [[ "$(basename $source)" == ".claude" ]] && continue
     dest=~/${source##*/}
     echo "Symlinking: $source to: $dest"
     ln -sf $source $dest
@@ -78,6 +79,11 @@ echo "Installing k9s config..."
 mkdir -p ~/.config/k9s
 ln -sf $dotfiles_dir/.config/k9s/config.yaml ~/.config/k9s/config.yaml
 echo "Symlinked: $dotfiles_dir/.config/k9s/config.yaml to: ~/.config/k9s/config.yaml"
+
+echo "Installing Claude Code settings..."
+mkdir -p ~/.claude
+ln -sf $dotfiles_dir/.claude/settings.json ~/.claude/settings.json
+echo "Symlinked: $dotfiles_dir/.claude/settings.json to: ~/.claude/settings.json"
 
 echo "Installing AWS config..."
 mkdir -p ~/.aws

@@ -10,6 +10,7 @@ full/             full setup (zsh, santiment tools, aws, vault, terraform)
 full/bin/         scripts → symlinked to ~/.local/bin/
 full/.aws/        AWS config (no credentials — credentials stay local)
 full/CLAUDE.md    global Claude Code context → ~/CLAUDE.md
+full/.claude/settings.json  Claude Code user settings → ~/.claude/settings.json
 full/AGENTS.md    global Codex context → ~/AGENTS.md
 install-essential.sh
 install-full.sh

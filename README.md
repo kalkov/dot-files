@@ -56,6 +56,7 @@ In addition to the essential symlinks, installs:
 | gh config | `~/.config/gh/config.yml` |
 | k9s config | `~/.config/k9s/config.yaml` |
 | ghostty config | `~/.config/ghostty/config` |
+| Claude Code settings | `~/.claude/settings.json` |
 | kube loader | `~/.kube/load-kube-configs.sh` |
 | Global AI context | `~/CLAUDE.md`, `~/AGENTS.md` |
 
