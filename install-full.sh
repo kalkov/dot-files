@@ -84,6 +84,9 @@ echo "Installing Claude Code settings..."
 mkdir -p ~/.claude
 ln -sf $dotfiles_dir/.claude/settings.json ~/.claude/settings.json
 echo "Symlinked: $dotfiles_dir/.claude/settings.json to: ~/.claude/settings.json"
+ln -sf $dotfiles_dir/.claude/statusline.sh ~/.claude/statusline.sh
+chmod +x $dotfiles_dir/.claude/statusline.sh
+echo "Symlinked: $dotfiles_dir/.claude/statusline.sh to: ~/.claude/statusline.sh"
 
 echo "Installing AWS config..."
 mkdir -p ~/.aws
