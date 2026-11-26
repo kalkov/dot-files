@@ -8,7 +8,7 @@ shift
 
 declare -A KUBE_CTX=(
   [system]="system"
-  [blockchain]="blockchain-v2"
+  [blockchain]="blockchain"
   [aws-prod]="aws-prod"
   [aws-stage]="k8s-stage.internal.santiment.net"
   [hetzner-stage]="hetzner-stage-v2"
