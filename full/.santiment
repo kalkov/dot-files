@@ -13,31 +13,19 @@ kue() {
 }
 
 san-ku-aws-stage() {
-    unset KUBECONFIG
-    unset KUBE_CONFIG
-    export KUBECONFIG=$KUBECONFIG:/home/merops/.kube/aws-stage
-    export KUBE_CONFIG=/home/merops/.kube/aws-stage
+    kubectl config use-context k8s-stage.internal.santiment.net
 }
 
 san-ku-hetzner-stage() {
-    unset KUBECONFIG
-    unset KUBE_CONFIG
-    export KUBECONFIG=$KUBECONFIG:/home/merops/.kube/hetzner-stage
-    export KUBE_CONFIG=/home/merops/.kube/hetzner-stage
+    kubectl config use-context hetzner-stage
 }
 
 san-ku-aws-prod() {
-    unset KUBECONFIG
-    unset KUBE_CONFIG
-    export KUBECONFIG=$KUBECONFIG:/home/merops/.kube/aws-prod
-    export KUBE_CONFIG=/home/merops/.kube/aws-prod
+    kubectl config use-context aws-prod
 }
 
 san-ku-hetzner-prod() {
-    unset KUBECONFIG
-    unset KUBE_CONFIG
-    export KUBECONFIG=$KUBECONFIG:/home/merops/.kube/hetzner-prod
-    export KUBE_CONFIG=/home/merops/.kube/hetzner-prod
+    kubectl config use-context hetzner-prod
 }
 
 san-ku-blockchain() {
