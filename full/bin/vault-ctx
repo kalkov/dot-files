@@ -10,7 +10,7 @@ declare -A KUBE_CTX=(
   [system]="system"
   [blockchain]="blockchain"
   [aws-prod]="aws-prod"
-  [aws-stage]="k8s-stage.internal.santiment.net"
+  [aws-stage]="aws-stage"
   [hetzner-stage]="hetzner-stage"
   [hetzner-prod]="hetzner-prod"
 )

@@ -13,7 +13,7 @@ Shell helpers (from `~/.santiment`) switch context and optionally the AWS profil
 | Helper | kubectl context | AWS profile |
 |--------|----------------|-------------|
 | `san-ku-aws-prod` | aws-prod | santiment |
-| `san-ku-aws-stage` | k8s-stage.internal.santiment.net | — |
+| `san-ku-aws-stage` | aws-stage | — |
 | `san-ku-hetzner-prod` | hetzner-prod | — |
 | `san-ku-hetzner-stage` | hetzner-stage | — |
 | `san-ku-blockchain` | blockchain | — |

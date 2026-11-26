@@ -13,7 +13,7 @@ kue() {
 }
 
 san-ku-aws-stage() {
-    kubectl config use-context k8s-stage.internal.santiment.net
+    kubectl config use-context aws-stage
 }
 
 san-ku-hetzner-stage() {
