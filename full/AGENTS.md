@@ -14,8 +14,8 @@ Shell helpers (from `~/.santiment`) switch context and optionally the AWS profil
 |--------|----------------|-------------|
 | `san-ku-aws-prod` | aws-prod | santiment |
 | `san-ku-aws-stage` | k8s-stage.internal.santiment.net | — |
-| `san-ku-hetzner-prod` | hetzner-prod-v2 | — |
-| `san-ku-hetzner-stage` | hetzner-stage-v2 | — |
+| `san-ku-hetzner-prod` | hetzner-prod | — |
+| `san-ku-hetzner-stage` | hetzner-stage | — |
 | `san-ku-blockchain` | blockchain | — |
 | `ku-terrarino` | terrarino | personal |
 

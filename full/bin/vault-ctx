@@ -11,8 +11,8 @@ declare -A KUBE_CTX=(
   [blockchain]="blockchain"
   [aws-prod]="aws-prod"
   [aws-stage]="k8s-stage.internal.santiment.net"
-  [hetzner-stage]="hetzner-stage-v2"
-  [hetzner-prod]="hetzner-prod-v2"
+  [hetzner-stage]="hetzner-stage"
+  [hetzner-prod]="hetzner-prod"
 )
 
 declare -A VAULT_URL=(
