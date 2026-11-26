@@ -41,10 +41,7 @@ san-ku-hetzner-prod() {
 }
 
 san-ku-blockchain() {
-    unset KUBECONFIG
-    unset KUBE_CONFIG
-    export KUBECONFIG=$KUBECONFIG:/home/merops/.kube/blockchain
-    export KUBE_CONFIG=/home/merops/.kube/blockchain
+    kubectl config use-context blockchain
 }
 
 san-ku-minikube() {
